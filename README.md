@@ -26,7 +26,7 @@ la nomenclature type d'un nom de commit ressemblerai à ceci pour l'ajout d'un b
 📢 Après avoir commit et push, il faut créer une pull request pour que le code soit comparer a la branche main et valider lorsqu'elle ne crée aucun conflit.
 
 
-Crédit : 
+Crédit : <br> 
 Yang Justine <br>
 Aaouis Zakariae <br>
 Kouao Jefferson <br>
