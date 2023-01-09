@@ -28,6 +28,6 @@ A près avoir commit et push, il faut créer une pull request pour que le code s
 
 Crédit : 
 Yang Justine <br>
-Zakaria <br>
+Aaouis Zakariae <br>
 Kouao Jefferson <br>
 Thayandan Abidesh <br>
