@@ -6,7 +6,8 @@ lien vercel : https://color-vote.vercel.app/
 Bonne pratique dev  👍 : 
 
 Chaque fonctionnalité doit etrre créé sur sa propre branche avec pour origine la branche main <br>
-- exmeple : je crée la focntionnalité connexion, je cré une branche : add/connexion
+- exmeple : je crée la focntionnalité connexion, je cré une branche : <br>
+ add/connexion ✅
 
 Lors d'un push je nomme mon commit avec une nomenclature spécifique en fonction de la tache réalisé :
 <br>
