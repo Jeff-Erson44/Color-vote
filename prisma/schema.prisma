@@ -16,13 +16,6 @@ model Admin {
   session Session[] @relation(name:"admin_session")
 }
 
-
-model Answer {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  answerName String  @unique
-}
-
-
 model Activity {
   id_activity      String   @id @default(auto()) @map("_id") @db.ObjectId
   activityName String  @unique @map("activityName")
@@ -62,10 +55,10 @@ model User{
 model Session{
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   name String
-  status Boolean
+  status Boolean @default(false)
   totalQuestion Int
   totalUser Int
-  countAnswer Int
+  countAnswer Int @default(0)
 
   group_session String 
   group Group  @relation(name:"group_session",fields: [group_session], references: [groupName])
