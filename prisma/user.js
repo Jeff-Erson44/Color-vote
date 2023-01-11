@@ -121,3 +121,15 @@ export const deleteUser = async (id) => {
     })
     return user
 }
+
+export const updateUserTok = async (id, token) => {
+    const user = await prisma.user.update({
+        where: {
+            id: id
+        },
+        data:{
+            token:token
+        }
+    })
+    return user
+}
