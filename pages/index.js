@@ -54,6 +54,7 @@ align-items: center;
 
 ` 
 export default function Home() {
+  
   return (
     <>
     <HomeStyle>
