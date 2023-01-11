@@ -9,3 +9,16 @@ export const getAdmin = async (id)=>{
     })
     return admin
 }
+
+
+export const updateAdminToken = async (id,token)=>{
+    const admin = await prisma.admin.update({
+        where:{
+            id:id
+        },
+        data:{
+            token:token
+        }
+    })
+    return admin
+}

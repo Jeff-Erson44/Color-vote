@@ -14,6 +14,7 @@ model Admin {
   name String  @unique
   password String
   session Session[] @relation(name:"admin_session")
+  token String @unique @db.ObjectId
 }
 
 model Activity {
@@ -42,6 +43,7 @@ model User{
   firstName String 
   lastName String 
   email String @unique
+  token String @unique @db.ObjectId
 
   activity_user String 
   activity Activity  @relation(name:"activity",fields: [activity_user], references: [activityName])
