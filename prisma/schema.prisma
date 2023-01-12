@@ -9,6 +9,8 @@ datasource db {
   url      = env("MONGODB_URI")
 }
 
+
+
 model Admin {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   name String  @unique
@@ -59,8 +61,8 @@ model Session{
   name String
   status Boolean @default(false)
   totalQuestion Int
-  totalUser Int
   countAnswer Int @default(0)
+  token String @unique @db.ObjectId
 
   group_session String 
   group Group  @relation(name:"group_session",fields: [group_session], references: [groupName])

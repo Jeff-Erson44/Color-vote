@@ -11,6 +11,8 @@
   "dependencies": {
     "@next/font": "13.1.1",
     "@prisma/client": "^4.8.1",
+    "bcryptjs": "^2.4.3",
+    "bson": "^4.7.2",
     "eslint": "8.31.0",
     "eslint-config-next": "^0.2.4",
     "mongodb": "^4.13.0",
@@ -21,6 +23,7 @@
     "react-dom": "18.2.0",
     "styled-components": "^5.3.6",
     "universalify": "^2.0.0",
+    "uuid": "^9.0.0",
     "vercel": "^19.1.2"
   },
   "devDependencies": {
