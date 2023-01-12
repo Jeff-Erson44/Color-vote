@@ -26,8 +26,6 @@ padding: 20px;
       color: var(--white);
     }
   }
-
-
   .admin__button{
     margin-right: 10px;
   }
@@ -50,7 +48,7 @@ gap: 20px;
     border: 1px solid var(--black);
   }
 
-  button[type='submit'] {
+  button{
     background-color: var(--yellow);
     border: 1px solid var(--yellow);
     padding: 15px 30px;
@@ -68,10 +66,12 @@ gap: 20px;
 @media(max-width: 768px){
   input{
     width: 100%!important;
-
   }
   .admin__button, .user__button{
     width: 130px!important;
+  }
+  .login__button{
+    margin-bottom: 50px;
   }
 }
 
