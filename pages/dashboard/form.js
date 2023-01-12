@@ -1,9 +1,12 @@
 import styled from "styled-components"
 import Head from "next/head"
+import Navbar from "../../components/Navbar"
 
 const FormStyle = styled.div `
 font-family: 'Helvetica';
 padding: 20px;
+width: 80vw;
+margin-left: 20vw;
 h1{
     text-align: center;
 }
@@ -45,6 +48,7 @@ export default function form() {
         <meta name = "viewport" content = "width=device-width, initial-scale=1" />
         <link rel = "icon" href = "/favicon.ico" />
         </Head> 
+        <Navbar />
         <h1> Créer un questionnaire </h1>
 
         <form action = "POST" >

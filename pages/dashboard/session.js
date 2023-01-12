@@ -1,5 +1,6 @@
 import Head from "next/head"
 import styled from "styled-components"
+import Navbar from "../../components/Navbar"
 
 const SessionStyle = styled.div`
 padding: 0 20px;
@@ -10,6 +11,8 @@ text-align: center;
 font-family: "Helvetica";
 height: 100vh;
 flex-direction: column;
+width:  80vw;
+margin-left: 20vw;
 
 .question{
     border: 1px solid var(--black);
@@ -44,7 +47,7 @@ export default function Session() {
         <link rel = "icon" href = "/favicon.ico" />
         </Head>
         <SessionStyle>
-
+        <Navbar />
         <h1>Session : </h1>
         <div className="questionSession">
             <p>Question n°</p>

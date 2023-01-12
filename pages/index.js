@@ -89,9 +89,7 @@ export default function Home() {
         <Image src="/img/ColorVote.png"
         width={180}
         height={150}
-        />
-
-        </h1>
+        /></h1>
         <h2>Vous êtes ?</h2>
 
         <div className='button__section'>
