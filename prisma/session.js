@@ -27,6 +27,15 @@ export const getSessionbyId = async (id)=>{
     return session
 }
 
+export const getSessionByToken = async (token)=>{
+    const session = await prisma.session.findUnique({
+        where:{
+            token:token
+        }
+    })
+    return session
+}
+
 export const getSessionGroup = async (code)=>{
     const session = await prisma.session.findUnique({
         where:{

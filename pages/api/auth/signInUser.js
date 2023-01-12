@@ -1,4 +1,4 @@
-import { getUserAndGroupe ,getUserbyFirstNameLastName} from '../../../prisma/user';
+import { getUserbyFirstNameLastName} from '../../../prisma/user';
 import { getSessionGroup } from '../../../prisma/session';
 import prisma from '../../../prisma/prisma'
 

@@ -1,7 +1,11 @@
 import prisma from './prisma'
 
-export const getAllQuestions = async () => {
-    const questions = await prisma.question.findMany({})
+export const getAllQuestions = async (id_session) => {
+    const questions = await prisma.question.findMany({
+        where:{
+            sessionId:id_session
+        }
+    })
     return questions
 }
 
@@ -14,10 +18,16 @@ export const getQuestion = async (id) => {
     return question
 }
 
-export const createQuestion = async (question) => {
+export const createQuestion = async (question,token_session) => {
     const newQuestion = await prisma.question.create({
         data: {
-            question: question
+            questionName: question,
+            session:{
+                connect:{
+                    token:token_session
+                }
+            },
+
         }
     })
     return newQuestion
