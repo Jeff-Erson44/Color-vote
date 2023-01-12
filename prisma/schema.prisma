@@ -1,6 +1,5 @@
-
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["mongoDb"]
 }
 
@@ -9,83 +8,79 @@ datasource db {
   url      = env("MONGODB_URI")
 }
 
-
-
 model Admin {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  name String  @unique
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  name     String    @unique
   password String
-  session Session[] @relation(name:"admin_session")
-  token String @unique @db.ObjectId
+  session  Session[] @relation(name: "admin_session")
+  token    String    @unique @db.ObjectId
 }
 
 model Activity {
-  id_activity      String   @id @default(auto()) @map("_id") @db.ObjectId
-  activityName String  @unique @map("activityName")
-  user User[] @relation(name:"activity")
+  id_activity  String @id @default(auto()) @map("_id") @db.ObjectId
+  activityName String @unique @map("activityName")
+  user         User[] @relation(name: "activity")
 }
 
 model Group {
-  id_group      String   @id @default(auto()) @map("_id") @db.ObjectId
-  groupName String  @unique 
-  user User[] @relation(name:"group")
-  session Session[] @relation(name:"group_session")
+  id_group  String    @id @default(auto()) @map("_id") @db.ObjectId
+  groupName String    @unique
+  user      User[]    @relation(name: "group")
+  session   Session[] @relation(name: "group_session")
 }
 
 model Question {
-  id_question      String   @id @default(auto()) @map("_id") @db.ObjectId
-  questionName String  @unique 
-  sessionId String @db.ObjectId
-  session Session  @relation(name:"question_session",fields: [sessionId], references: [id])
-  history History? @relation(name:"history_question")
+  id_question  String   @id @default(auto()) @map("_id") @db.ObjectId
+  questionName String   @unique
+  sessionId    String   @db.ObjectId
+  session      Session  @relation(name: "question_session", fields: [sessionId], references: [id])
+  history      History? @relation(name: "history_question")
 }
 
-model User{
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  firstName String 
-  lastName String 
-  email String @unique
-  token String @unique @db.ObjectId
+model User {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  firstName String
+  lastName  String
+  email     String @unique
+  token     String @unique @db.ObjectId
 
-  activity_user String 
-  activity Activity  @relation(name:"activity",fields: [activity_user], references: [activityName])
+  activity_user String
+  activity      Activity @relation(name: "activity", fields: [activity_user], references: [activityName])
 
-  group_user String 
-  group Group  @relation(name:"group",fields: [group_user], references: [groupName])
+  group_user String
+  group      Group  @relation(name: "group", fields: [group_user], references: [groupName])
 
-  history_user History[] @relation(name:"history_user")
-  }
+  history_user History[] @relation(name: "history_user")
+}
 
-model Session{
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
-  status Boolean @default(false)
+model Session {
+  id            String  @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  status        Boolean @default(false)
   totalQuestion Int
-  countAnswer Int @default(0)
-  token String @unique @db.ObjectId
+  countAnswer   Int     @default(0)
+  token         String  @unique @db.ObjectId
 
-  group_session String 
-  group Group  @relation(name:"group_session",fields: [group_session], references: [groupName])
+  group_session String
+  group         Group  @relation(name: "group_session", fields: [group_session], references: [groupName])
 
   admin_session String @db.ObjectId
-  admin Admin  @relation(name:"admin_session",fields: [admin_session], references: [id])
+  admin         Admin  @relation(name: "admin_session", fields: [admin_session], references: [id])
 
-  question Question[] @relation(name:"question_session")
-  history History? @relation(name:"history_session") 
-
+  question Question[] @relation(name: "question_session")
+  history  History?   @relation(name: "history_session")
 }
 
-model History{
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
+model History {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
   answer Int
 
   history_id String @db.ObjectId
-  history User  @relation(name:"history_user",fields: [history_id], references: [id])
+  history    User   @relation(name: "history_user", fields: [history_id], references: [id])
 
-  question_id String @db.ObjectId @unique
-  question Question  @relation(name:"history_question",fields: [question_id], references: [id_question])
+  question_id String   @unique @db.ObjectId
+  question    Question @relation(name: "history_question", fields: [question_id], references: [id_question])
 
-  session_id String @db.ObjectId @unique
-  session Session  @relation(name:"history_session",fields: [session_id], references: [id])
-
-} 
+  session_id String  @unique @db.ObjectId
+  session    Session @relation(name: "history_session", fields: [session_id], references: [id])
+}
