@@ -39,16 +39,23 @@ export const getUserAndGroupe= async (firstName_input,lastName_input) => {
 }
 
 
-export const createUser = async (firstName, lastName, email,activity,group) => {
+export const createUser = async (firstName, lastName, email,activity,group,token) => {
     const user = await prisma.user.create({
         data: {
             firstName:firstName,
             lastName:lastName,
             email:email,
-            activity_id:activity,
-            activity:activity,
-            group_user:group,
-            group:group
+            token: token,
+            activity:{
+                connect:{
+                    activityName:activity
+                }
+            },
+            group:{
+                connect:{
+                    groupName:group
+                }
+            },
         }
     })
     return user
