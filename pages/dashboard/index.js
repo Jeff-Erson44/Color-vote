@@ -50,7 +50,7 @@ export default function Dashboard() {
         <DashboardStyle>
                 <div className='container__dashboard--highlight'>
                     <h1>Tableau de bord</h1>
-                    <p>Vous etes connecte en tant <br></br> qu'<span>Admin</span></p>
+                    <p>Vous êtes connecté en tant <br></br> qu'<span>Admin</span></p>
                 </div>
 
                 <h2>Resultat du dernier questionnaire</h2>
@@ -64,7 +64,7 @@ export default function Dashboard() {
                 </div>
                 
                 
-                <h2> Historique des dernieres sessions</h2>
+                <h2> Historique des dernières sessions</h2>
                 <LastSession/>
 
                 

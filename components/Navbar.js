@@ -63,7 +63,7 @@ export default function Navbar(){
                             width={21}
                             height={21}
                         />
-                        <Link href="#">
+                        <Link href="/dashboard/historySession">
                             <p>Les sessions</p>
                         </Link>
                     </li>
