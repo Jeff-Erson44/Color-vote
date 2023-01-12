@@ -11,6 +11,7 @@ text-align: center;
 font-family: "Helvetica";
 height: 100vh;
 flex-direction: column;
+
 width:  80vw;
 margin-left: 20vw;
 
@@ -22,6 +23,7 @@ margin-left: 20vw;
     height: auto;
 
 }
+
 button[type='submit'] {
     background-color: var(--yellow);
     border: 1px solid var(--yellow);
@@ -30,12 +32,14 @@ button[type='submit'] {
     font-family: 'Helvetica';
     border-radius: 5px;
     cursor: pointer;
-
-&:hover{
-    background-color: var(--white);
-    border: 1px solid var(--black);
+    
+    &:hover{
+        background-color: var(--white);
+        border: 1px solid var(--black);
     }
 }
+
+
 `
 export default function Session() {
     return (
@@ -54,8 +58,12 @@ export default function Session() {
             <p className="question">Le sport a-t-il des bienfaits sur la santé ?</p>
             <p>1 / 16</p>
 
-            <button type="submit">Suivant</button>
+
+                <button className="next" type="submit">Suivant</button>
+                <button className="end" type="submit">J'ai fini</button>
+
         </div>
+
         </SessionStyle>
         </>
 
