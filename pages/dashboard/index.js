@@ -1,6 +1,6 @@
 import Navbar from '../../components/Navbar'
 import styled from'styled-components'
-import LastView from '../../components/LastView'
+
 
 const DashboardStyle = styled.div`
     width: 80vw;
@@ -42,7 +42,7 @@ export default function Dashboard() {
                 <h2>Resultat du dernier questionnaire</h2>
             </DashboardStyle>
 
-            <LastView/>
+
         </>
     )
 }
