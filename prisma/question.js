@@ -12,7 +12,17 @@ export const getAllQuestions = async (id_session) => {
 export const getQuestion = async (id) => {
     const question = await prisma.question.findUnique({
         where: {
-            id: id
+            id_question: id
+        }
+    })
+    return question
+}
+
+
+export const getQuestionAndBnQuestion = async (id) => {
+    const question = await prisma.question.findUnique({
+        where: {
+            id_question: id
         }
     })
     return question
