@@ -2,6 +2,8 @@ import styled from "styled-components"
 import Head from "next/head"
 
 const FormStyle = styled.div `
+font-family: 'Helvetica';
+padding: 20px;
 h1{
     text-align: center;
 }
@@ -20,7 +22,16 @@ button[type='submit'] {
     background-color: var(--yellow);
     border: 1px solid var(--yellow);
     padding: 15px 35px;
-    margin-top: 30px;
+    font-family: 'Helvetica';
+    text-align: center;
+    border-radius: 5px;
+    display: block;
+    margin: 20px auto;
+    cursor: pointer;
+    &:hover{
+        background-color: var(--white);
+        border: 1px solid var(--black);
+      }
 
   }
 `
@@ -43,8 +54,9 @@ export default function form() {
         <button type="submit">Ajouter</button>
         </form> 
 
-        <h2>Les questions :</h2>
 
+        <h2>Les questions :</h2>
+        
         <button type="submit">Suivant</button>
         </FormStyle> 
         </>
