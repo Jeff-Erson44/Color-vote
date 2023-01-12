@@ -12,6 +12,28 @@ h1{
     text-align: center;
 }
 
+form{
+    margin: 20px 0px;
+    
+    input{
+        padding: 10px 20px;
+        margin-right: 10px;
+    }
+    button[type='submit'] {
+        background-color: var(--yellow);
+        border: 1px solid var(--yellow);
+        padding: 15px 30px;
+        margin-top: 30px;
+        font-family: 'Helvetica';
+        border-radius: 5px;
+        cursor: pointer;
+
+    &:hover{
+            background-color: var(--white);
+            border: 1px solid var(--black);
+    }
+    }
+}
 table {
         width: 100%;
 }
@@ -38,6 +60,7 @@ tbody tr:nth-child(even) {
 tbody tr:nth-child(odd) {
     background-color: #f4f4f4;
 }
+
 `
 export default function Users() {
     return(
@@ -52,6 +75,18 @@ export default function Users() {
 
         <Navbar />
         <h1>Liste des utilisateurs</h1>
+        <form action="POST">
+            <input type="text" name='name' id='name' placeholder='Nom' />
+
+            <input type="text" name='firstname' id='fistname' placeholder='Prénom' />
+
+            <input type="text" name='email' id='email' placeholder='Email' />
+
+            <input type="text" name='activity' placeholder='Activité' />
+            <input type="text" name='team' placeholder='Groupe' />
+
+            <button type='submit'>Ajouter</button>
+        </form>
             <table>
                 <thead>
                     <tr>
