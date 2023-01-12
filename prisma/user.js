@@ -16,14 +16,28 @@ export const getUserById = async (id) => {
 
 
 export const getUserbyFirstNameLastName= async (firstName,lastName) => {
-    const user = await prisma.user.findUnique({
+    const user = await prisma.user.findMany({
         where: {
             firstName: firstName,
-            lastName:lastName
         }
     })
     return user
 }
+
+
+
+export const getUserAndGroupe= async (firstName_input,lastName_input) => {
+    const user = await prisma.user.findUnique({
+        where: {
+            firstName: firstName_input,
+            lastName:lastName_input,
+        },include:{
+            group:true
+        }
+    })
+    return user
+}
+
 
 export const createUser = async (firstName, lastName, email,activity,group) => {
     const user = await prisma.user.create({
@@ -121,3 +135,16 @@ export const deleteUser = async (id) => {
     })
     return user
 }
+
+export const updateUserTok = async (id, token) => {
+    const user = await prisma.user.update({
+        where: {
+            id: id
+        },
+        data:{
+            token:token
+        }
+    })
+    return user
+}
+

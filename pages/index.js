@@ -4,7 +4,6 @@ import Image from 'next/image'
 
 const HomeStyle = styled.div`
 
-
 height: 100vh;
 text-align: center;
 font-family: 'Helvetica';

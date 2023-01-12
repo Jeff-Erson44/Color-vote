@@ -9,11 +9,14 @@ datasource db {
   url      = env("MONGODB_URI")
 }
 
+
+
 model Admin {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   name String  @unique
   password String
   session Session[] @relation(name:"admin_session")
+  token String @unique @db.ObjectId
 }
 
 model Activity {
@@ -42,6 +45,7 @@ model User{
   firstName String 
   lastName String 
   email String @unique
+  token String @unique @db.ObjectId
 
   activity_user String 
   activity Activity  @relation(name:"activity",fields: [activity_user], references: [activityName])
@@ -57,8 +61,8 @@ model Session{
   name String
   status Boolean @default(false)
   totalQuestion Int
-  totalUser Int
   countAnswer Int @default(0)
+  token String @unique @db.ObjectId
 
   group_session String 
   group Group  @relation(name:"group_session",fields: [group_session], references: [groupName])
