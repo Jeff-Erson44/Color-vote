@@ -2,6 +2,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 const SessionCardStyled = styled.div`
+    margin-left: 20vw;
     .container__sessionCard{
         width: 350px;
         border-radius: 10px;
