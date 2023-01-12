@@ -41,7 +41,8 @@ export const getSessionQuestion = async (id)=>{
         where:{
             id:id
         },select:{
-            question:true
+            question:true,
+            token:true
         }
     })
     return session

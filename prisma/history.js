@@ -1,24 +1,37 @@
 import prisma from './prisma'
 
-export const getHistory = async (id) => {
+export const getHistory = async (id,question_id,session_id) => {
     const history = await prisma.history.findMany({
         where:{
-            user_id:id
+            history_id:id,
+            question_id:question_id,
+            session_id:session_id
         }
     })
     return history
 }
 
-export const createHistory = async (answer,history,question,session) => {
+export const createHistory = async (answer,user_id,question,session) => {
     const history = await prisma.history.create({
         data: {
+
             answer:answer,
-            history:history,
-            history_id:history,
-            question:question,
-            question_id:question,
-            session:session,
-            session_id:session,
+            history:{
+                connect:{
+                    id:user_id
+                }
+            },
+            
+            question:{
+                connect:{
+                    id_question:question
+                }
+            },
+            session:{
+                connect:{
+                    id:session
+                }
+            },
         }
     })
     return history

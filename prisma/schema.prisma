@@ -73,7 +73,7 @@ model Session {
 
 model History {
   id     String @id @default(auto()) @map("_id") @db.ObjectId
-  answer Int
+  answer Int @default(7)
 
   history_id String @db.ObjectId
   history    User   @relation(name: "history_user", fields: [history_id], references: [id])
