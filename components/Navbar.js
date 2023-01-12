@@ -51,7 +51,7 @@ export default function Navbar(){
                             width={21}
                             height={21}
                         />
-                        <Link href="#">
+                        <Link href="/dashboard">
                             <p>Tableau de bord</p>
                         </Link>
                         
