@@ -20,7 +20,7 @@ z-index: 9;
                 align-items: center;
                 gap: 15px;
                 margin-bottom: 30px;
-                a{
+                p{
                     font-family: 'Helvetica-Bold';
                 }
             }
