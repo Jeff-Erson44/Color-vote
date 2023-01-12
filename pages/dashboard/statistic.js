@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Head from "next/head";
 import Chart from 'chart.js/auto';
 import Navbar from "../../components/Navbar";
+import PieCharts from "../../components/PieCharts";
 
 const StatisticStyle = styled.div`
 padding: 0 20px;
@@ -95,7 +96,8 @@ export default function Statistic() {
         </div>
 
         <section className="graphic">
-            <div>Graphique</div>
+            <PieCharts />
+            
             <div className="legend">
                 <p>Légende :</p>
                     <ul>
