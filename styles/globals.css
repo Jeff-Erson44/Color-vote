@@ -74,17 +74,19 @@ p{
 }
 
 @font-face {
-	font-family: 'Helvetica';
-	src: url('/fonts/HelveticaNeueCyr-Medium.woff');
-	font-display: swap;
+    font-family: 'Helvetica';
+    src: url('/fonts/HelveticaNeueCyr-Medium.woff');
+    font-display: swap;
 }
+
 @font-face {
-	font-family: 'Helvetica-Bold';
-	src: url('/fonts/HelveticaNeueCyr-Bold.woff');
-	font-display: swap;
+    font-family: 'Helvetica-Bold';
+    src: url('/fonts/HelveticaNeueCyr-Bold.woff');
+    font-display: swap;
 }
+
 @font-face {
-	font-family: 'Helvetica-Light';
-	src: url('/fonts/HelveticaNeueCyr-Light.woff');
-	font-display: swap;
+    font-family: 'Helvetica-Light';
+    src: url('/fonts/HelveticaNeueCyr-Light.woff');
+    font-display: swap;
 }
