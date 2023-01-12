@@ -24,6 +24,7 @@ p{
     display: flex;
     justify-content: space-around;
     margin-top: 50px;
+
 .legend{
 li{
     list-style-type: none;
@@ -37,43 +38,14 @@ li{
     
 }
 
-
-.darkgreen{
-    background-color: var(--darkgreen);
-}
-
-.lightgreen{
-    background-color: var(--lightgreen);
-}
-
-.orange{
-    background-color: var(--orange);
-}
-.lightred{
-    background-color: var(--lightred);
-}
-
-.darkred{
-    background-color: var(--darkred);
-}
-
-.white{
-    background-color: var(--white);
-    border: 1px solid var(--black);
-}
-
-.black{
-    background-color: var(--black);
-}
-}
-}
-
 .answers{
     display: flex;
-
 }
-
+.piecharts{
+    width: 200px;
+}
 `
+
 export default function Statistic() {
     return (
 
@@ -96,33 +68,12 @@ export default function Statistic() {
         </div>
 
         <section className="graphic">
+            <div className="piecharts">
             <PieCharts />
-            
-            <div className="legend">
-                <p>Légende :</p>
-                    <ul>
-                        <li><div className="darkgreen color"></div>Tout à fait d'accord</li>
-                        <li><div className="lightgreen color"></div>D'accord</li>
-                        <li><div className="orange color"></div>Mitigé</li>
-                        <li><div className="darkred color"></div>Pas d'accord</li>
-                        <li><div className="lightred color"></div>Pas du tout d'accord</li>
-                        <li><div className="white color"></div>Aucun Avis</li>
-                        <li><div className="black color"></div>Pas de réponse</li>
-                    </ul>
             </div>
+
+            
         </section>
-        <hr />
-        <div className="answers">
-            <ul>
-                <li>Le sport a-t-il des bienfaits ?  
-                <div className="darkgreen color"></div>
-                </li>
-                <li>
-                    La chasse est-il un sport ?
-                </li>
-                <li>Penses-tu que le sport est un moyen de s'épanouir ?</li>
-            </ul>
-        </div>
     </StatisticStyle>
         </>
     )
