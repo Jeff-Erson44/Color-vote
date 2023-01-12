@@ -10,15 +10,18 @@ const ButtonQuestionStyle = styled.div`
         padding: 30px 50px;
         border-radius: 10px;
     }
+    Link{
+        cursor: pointer;
+    }
 `
 
 export default function ButtonQuestion(){
     return (
         <>
         <ButtonQuestionStyle>
-            <Link href="#">
+            <Link href="/dashboard/form">
             <div className='container__button'>
-                <p>Creer un nouveau <br></br>questionnaire</p>
+                <p>Créer un nouveau <br></br>questionnaire</p>
                 <Image
                     src='/img/plus.svg'   
                     alt="fleche pour acceder a l'historique de la session"
