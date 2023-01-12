@@ -1,13 +1,15 @@
 import Head from "next/head";
 import styled from "styled-components";
+import NavbarUser from "../../components/NavbarUser"
 
 const IndexStyle = styled.div`
-height: 100vh;
-display:flex; 
-flex-direction: column;
-justify-content: center;
-align-items:center;
-
+.session{
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
 button[type='submit'] {
     background-color: var(--yellow);
     border: 1px solid var(--yellow);
@@ -36,13 +38,15 @@ export default function Index(){
         <meta name = "viewport" content = "width=device-width, initial-scale=1" />
         <link rel = "icon" href = "/favicon.ico" />
         </Head>
-
+        <NavbarUser />
+        <div className="session">
         <h1>Session </h1>
 
         <p>40 questions</p>
         <p>À chaque question, sélectionner une réponse.</p>
         
         <button type="submit">Commencer</button>
+        </div>
         </IndexStyle>
         </>
     )
