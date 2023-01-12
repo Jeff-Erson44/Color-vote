@@ -9,6 +9,11 @@ export const getSession = async (id)=>{
     return session
 }
 
+export const getAllSession = async ()=>{
+    const session = await prisma.session.findMany()
+    return session
+}
+
 export const getSessionbyName = async (name)=>{
     const session = await prisma.session.findUnique({
         where:{

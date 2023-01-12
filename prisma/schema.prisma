@@ -41,8 +41,8 @@ model User {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
   firstName String
   lastName  String
-  email     String @unique
-  token     String @unique @db.ObjectId
+  email     String 
+  token     String @unique  @db.ObjectId 
 
   activity_user String
   activity      Activity @relation(name: "activity", fields: [activity_user], references: [activityName])
