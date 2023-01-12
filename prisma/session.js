@@ -36,6 +36,17 @@ export const getSessionByToken = async (token)=>{
     return session
 }
 
+export const getSessionQuestion = async (id)=>{
+    const session = await prisma.session.findUnique({
+        where:{
+            id:id
+        },select:{
+            question:true
+        }
+    })
+    return session
+}
+
 export const getSessionGroup = async (code)=>{
     const session = await prisma.session.findUnique({
         where:{
@@ -68,6 +79,18 @@ export const updateSession = async (id,name,totalQuestion,totalUser,countAnswer)
             totalQuestion:totalQuestion,
             totalUser:totalUser,
             countAnswer:countAnswer
+        }
+    })
+    return session
+}
+
+export const updateSessionStatus = async (id,status)=>{
+    const session = await prisma.session.update({
+        where:{
+            id:id
+        },
+        data:{
+            status:status
         }
     })
     return session

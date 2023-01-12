@@ -23,8 +23,7 @@ export default async function handler(req,res){
                 break;
             case 'GET':
                 const lst_question = await getAllQuestions();
-                console.log(lst_question)
-                res.status(200).json({message:"Question pull ok!"})
+                res.status(200).json(lst_question)
 
         }
     }catch(err){
