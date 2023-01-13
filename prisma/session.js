@@ -23,14 +23,6 @@ export const getSessionbyName = async (name)=>{
     return session
 }
 
-export const getSessionbyId = async (id)=>{
-    const session = await prisma.session.findUnique({
-        where:{
-            id:id
-        }
-    })
-    return session
-}
 
 export const getSessionByToken = async (token)=>{
     const session = await prisma.session.findUnique({

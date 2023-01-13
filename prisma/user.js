@@ -24,6 +24,16 @@ export const getUserbyFirstNameLastName= async (firstName,lastName) => {
     return user
 }
 
+export const getUserByGroupe = async (group) => {
+    const user = await prisma.user.findMany({
+        where: {
+            group: {
+                groupName: group
+            }
+        }
+    })
+    return user
+}
 
 
 export const getUserAndGroupe= async (firstName_input,lastName_input) => {

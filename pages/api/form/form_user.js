@@ -1,7 +1,7 @@
-import {getAllSession} from '../../../prisma/session'
+import {getSession} from '../../../prisma/session'
 import {getAllActivity} from '../../../prisma/activity'
-import {getAllGroup} from '../../../prisma/group'
-import {createUser} from '../../../prisma/user'
+import {getAllGroup,getGroupByName} from '../../../prisma/group'
+import {createUser,getUserByGroupe} from '../../../prisma/user'
 import { ObjectId } from 'mongodb'
 
 export default async function handler(req,res){
@@ -23,14 +23,19 @@ export default async function handler(req,res){
                 }
                 break;
             case 'GET':
+                const {session_id} = req.body
                 const lst_activity = await getAllActivity();
                 const lst_group = await getAllGroup();
-                const lst_session = await getAllSession();
+                /*
+                    const session = await getSession(session_id)
+                    const group_session = await getGroupByName(session.group_session)
+                    const lst_user = await getUserByGroupe(group_session.groupName)
+                */
                 res.status(200).json(
                     {
                         "activity": lst_activity,
                         "group": lst_group,
-                        "session": lst_session
+                        /*"lst_user": lst_user*/
                     }
                 )
 

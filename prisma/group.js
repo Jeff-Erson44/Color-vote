@@ -18,7 +18,7 @@ export const getGroupById = async (id) => {
 export const getGroupByName = async (name) => {
     const answer = await prisma.group.findUnique({
         where: {
-        groupName: name
+            groupName: name
         }
     })
     return answer
