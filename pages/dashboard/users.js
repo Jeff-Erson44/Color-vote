@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import Navbar from '../../components/Navbar'
 import Head from 'next/head';
+import User from '../../components/user';
+import { useEffect,useState } from 'react';
 
 const UsersStyle = styled.div`
 width: 80vw;
@@ -60,9 +62,24 @@ tbody tr:nth-child(even) {
 tbody tr:nth-child(odd) {
     background-color: #f4f4f4;
 }
-
 `
+
+
+
 export default function Users() {
+    const [Datas,setDatas] = useState([])
+
+    const fetchData = async () => {
+        const res = await fetch('/api/form/form_user')
+        const data_get = await res.json()
+        setDatas(data_get)
+    }
+
+    useEffect(()=>{
+        fetchData()
+    },[])
+
+
     return(
         <>
         <UsersStyle>
@@ -75,15 +92,36 @@ export default function Users() {
 
         <Navbar />
         <h1>Liste des utilisateurs</h1>
-        <form action="POST">
+        <form onsubmit="handleSubmitPost" method="POST">
             <input type="text" name='name' id='name' placeholder='Nom' />
 
             <input type="text" name='firstname' id='fistname' placeholder='Prénom' />
 
             <input type="text" name='email' id='email' placeholder='Email' />
 
-            <input type="text" name='activity' placeholder='Activité' />
-            <input type="text" name='team' placeholder='Groupe' />
+            <select name="choix des acitivités">
+                <option value="">-- activité--</option>
+                {
+                    
+                    Datas.activity?.map((activity)=>{
+                        <option value={activity.activityName}>{activity.activityName}</option>
+
+                    })
+                }
+            </select>
+
+            <select name="choix des groups">
+                <option value="">-- groupe--</option>
+                {   
+                    Datas.group?.map((group)=>{
+                        <option value={group.groupName}>{group.groupName}</option>
+
+                    })
+                }
+            </select>
+
+
+
 
             <button type='submit'>Ajouter</button>
         </form>
@@ -98,23 +136,9 @@ export default function Users() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Kouao</td>
-                        <td>Jefferson</td>
-                        <td>kouaojeff@gmail.com</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Kouao</td>
-                        <td>Jefferson</td>
-                        <td>kouaojeff@gmail.com</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
                 </tbody>
             </table>
-        </UsersStyle>
+            </UsersStyle>
         </> 
         
     )
