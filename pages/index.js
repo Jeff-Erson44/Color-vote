@@ -58,8 +58,9 @@ gap: 20px;
     font-family: 'Helvetica';
     border-radius: 5px;
     cursor: pointer;
-
-    &:hover{
+  }
+  .login__button{
+    &.active{
       background-color: var(--white);
       border: 1px solid var(--black);
     }
