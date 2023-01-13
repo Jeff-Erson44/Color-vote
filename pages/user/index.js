@@ -1,6 +1,7 @@
 import Head from "next/head";
-import styled from "styled-components";
+import styled from "styled-components"
 import NavbarUser from "../../components/NavbarUser"
+import Link from "next/link";
 
 const IndexStyle = styled.div`
 .session{
@@ -10,7 +11,7 @@ const IndexStyle = styled.div`
     flex-direction: column;
     justify-content: center;
 }
-button[type='submit'] {
+button {
     background-color: var(--yellow);
     border: 1px solid var(--yellow);
     padding: 15px 35px;
@@ -23,9 +24,9 @@ button[type='submit'] {
     &:hover{
         background-color: var(--white);
         border: 1px solid var(--black);
-      }
+    }
 
-  }
+}
 `
 
 export default function Index(){
@@ -45,7 +46,7 @@ export default function Index(){
         <p>40 questions</p>
         <p>À chaque question, sélectionner une réponse.</p>
         
-        <button type="submit">Commencer</button>
+        <button>Commencer</button>
         </div>
         </IndexStyle>
         </>
