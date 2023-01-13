@@ -74,7 +74,7 @@ export default function Navbar(){
                             width={21}
                             height={21}
                         />
-                        <Link href="#">
+                        <Link href="/">
                             <p>Deconnexion</p>
                         </Link>
                     </li>
