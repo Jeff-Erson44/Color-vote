@@ -21,11 +21,6 @@ padding: 20px;
     width: 180px;
     border-radius: 8px;
     cursor: pointer;
-
-    &:hover{
-      background-color: var(--black);
-      color: var(--white);
-    }
   }
   .admin__button{
     margin-right: 10px;
@@ -33,6 +28,10 @@ padding: 20px;
 
   .user__button{
     margin-left: 10px;
+    &.active{
+      background-color: var(--black);
+      color: var(--white);
+    }
   }
 }
 
@@ -105,7 +104,6 @@ export default function Home() {
           password: inputedAdmin.password
         }),
       });
-      console.log(res, 'fgd,j,');
       const data = await res.json();
       if(res.ok){
         console.log('connecté');
@@ -158,7 +156,7 @@ export default function Home() {
         },
       });
       setTimeout(() => {
-        router.push('/vote')
+        router.push('/user')
       } , 2500)
       console.log('connecté');
     }else{
