@@ -19,15 +19,6 @@ export const getQuestion = async (id) => {
 }
 
 
-export const getQuestionAndBnQuestion = async (id) => {
-    const question = await prisma.question.findUnique({
-        where: {
-            id_question: id
-        }
-    })
-    return question
-}
-
 export const createQuestion = async (question,token_session) => {
     const newQuestion = await prisma.question.create({
         data: {

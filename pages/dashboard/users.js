@@ -70,7 +70,7 @@ export default function Users() {
     const [Datas,setDatas] = useState([])
 
     const fetchData = async () => {
-        const res = await fetch('/api/form/form_user')
+        const res = await fetch('/api/form/form_user/${session_id}')
         const data_get = await res.json()
         setDatas(data_get)
     }

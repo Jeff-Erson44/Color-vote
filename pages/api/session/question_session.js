@@ -1,4 +1,4 @@
-import {getSession} from '../../../prisma/session';
+import {getSession,getSessionQuestion} from '../../../prisma/session';
 
 export default async function handler(req,res){
     try{
@@ -9,8 +9,12 @@ export default async function handler(req,res){
                     return res.status(400).json({error:'Please add all the fields'})
                 }
                 let curr_session = await getSession(id);
+                let question = await getSessionQuestion(id,num);
+                console.log(id,num,"log")
+
                 if(curr_session){
                     if(num > curr_session.totalQuestion){
+                        console.log("aozdnazkd")
                         res.status(200).json(
                             {
                                 "session": curr_session,
@@ -24,7 +28,8 @@ export default async function handler(req,res){
                                 "session": curr_session,
                                 "name": curr_session.name,
                                 "nb_page": curr_session.totalQuestion,
-                                "num_page": num+1,
+                                "num_page": num,
+                                "question": question.question[num]
                             }
                         )
                     }

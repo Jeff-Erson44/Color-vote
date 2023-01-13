@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { Toaster, toast } from 'react-hot-toast'
+import { setCookie ,getCookie} from 'cookies-next';
 
 const HomeStyle = styled.div`
 
@@ -107,6 +108,7 @@ export default function Home() {
       });
       console.log(res, 'fgd,j,');
       const data = await res.json();
+      console.log(data)
       if(res.ok){
         console.log('connecté');
         toast.success('Admin connecté', {
@@ -149,7 +151,10 @@ export default function Home() {
       }),
     });
     console.log(res, 'user');
+    const data = await res.json();
     if(res.ok){
+      setCookie("id_session",data.id_session)
+      console.log(getCookie("id_session"))
       toast.success('Vous rejoignez la session', {
         icon: '✅',
         style: {
@@ -158,7 +163,7 @@ export default function Home() {
         },
       });
       setTimeout(() => {
-        router.push('/vote')
+        router.push('/user/')
       } , 2500)
       console.log('connecté');
     }else{

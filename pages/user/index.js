@@ -2,6 +2,8 @@ import Head from "next/head";
 import styled from "styled-components"
 import NavbarUser from "../../components/NavbarUser"
 import Link from "next/link";
+import { getCookie } from 'cookies-next';
+import { useEffect,useState } from 'react';
 
 const IndexStyle = styled.div`
 .session{
@@ -29,7 +31,28 @@ button {
 }
 `
 
+
+
 export default function Index(){
+    const [Datas,setDatas] = useState([])
+    const fetchData = async () => {
+        const res = await fetch('/api/session/pre_session',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },body: JSON.stringify({id_session:getCookie('id_session')}
+            )
+        })
+        const data_get = await res.json()
+        setDatas(data_get)
+    }
+
+    useEffect(()=>{
+        fetchData()
+    },[])
+
+    
+
     return(
         <>
         <IndexStyle>
@@ -41,12 +64,16 @@ export default function Index(){
         </Head>
         <NavbarUser />
         <div className="session">
-        <h1>Session </h1>
+    
+        <h1>{Datas.name} </h1>
 
-        <p>40 questions</p>
+        <p>{Datas.nb_page} questions</p>
         <p>À chaque question, sélectionner une réponse.</p>
         
-        <button>Commencer</button>
+        <Link href="user/questionsSession">
+            <button >Commencer</button>
+
+        </Link>
         </div>
         </IndexStyle>
         </>

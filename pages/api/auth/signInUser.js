@@ -15,7 +15,7 @@ export default async function handler(req,res){
                 if(user){
                     let groupSession = await getSessionGroup(code)
                     if(groupSession.group.groupName == user[0].group_user){
-                        res.status(200).json({message:"User connecté"})
+                        res.status(200).json({message:"User connecté", id_session: groupSession.id})
                         await prisma.$disconnect()
                     }else{
                         return res.status(401).json({error:'Invalid code'})

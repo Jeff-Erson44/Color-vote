@@ -33,6 +33,7 @@ model Question {
   id_question  String   @id @default(auto()) @map("_id") @db.ObjectId
   questionName String   @unique
   sessionId    String   @db.ObjectId
+  
   session      Session  @relation(name: "question_session", fields: [sessionId], references: [id])
   history      History? @relation(name: "history_question")
 }

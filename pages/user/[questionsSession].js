@@ -1,6 +1,8 @@
 import Head from "next/head";
 import styled from "styled-components";
 import NavbarUser from "../../components/NavbarUser"
+import { getCookie ,setCookie} from 'cookies-next';
+import { useEffect,useState } from 'react';
 
 const QuestionsSessionStyle = styled.div `
 text-align: center;
@@ -79,6 +81,27 @@ form{
 `
 
 export default function QuestionsSession() { 
+  const [Datas,setDatas] = useState([])
+
+    const fetchData = async () => {
+        const res = await fetch('/api/session/question_session',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },body: JSON.stringify({
+                id:getCookie('id_session'),
+                num:getCookie('page')
+              }
+            )
+        })
+        const data_get = await res.json()
+        setDatas(data_get)
+    }
+
+    useEffect(()=>{
+        fetchData()
+    },[])
+
     return(
         <>
         <QuestionsSessionStyle>
@@ -91,30 +114,31 @@ export default function QuestionsSession() {
 
     <NavbarUser />
 
-    <h1>Le sport a-t-il des bienfaits pour la santé ?</h1>
+      {console.log(Datas.question)}
+    <h1>{Datas.question}</h1>
     <div>
        <form>
 
-       <input type="radio" class="demo2 demono darkgreen"  id="demo2-a" />
-        <label for="demo2-a">Tout à fait d'accord</label>
+       <input type="radio" className="demo2 demono darkgreen"  id="demo2-a" />
+        <label htmlFor="demo2-a">Tout à fait d'accord</label>
 
-        <input type="radio" name="demo2 " class="demo2 demono lightgreen" id="demo2-b" />
-        <label for="demo2-b">D'accord</label>
+        <input type="radio" name="demo2 " className="demo2 demono lightgreen" id="demo2-b" />
+        <label htmlFor="demo2-b">D'accord</label>
 
-        <input type="radio" name="demo2" class="demo2 demono  orange" id="demo2-c" />
-        <label for="demo2-c">Mitigé</label>
+        <input type="radio" name="demo2" className="demo2 demono  orange" id="demo2-c" />
+        <label htmlFor="demo2-c">Mitigé</label>
 
-        <input type="radio" name="demo2" class="demo2 demono darkred" id="demo2-d" />
-        <label for="demo2-d">Pas d'accord</label>
+        <input type="radio" name="demo2" className="demo2 demono darkred" id="demo2-d" />
+        <label htmlFor="demo2-d">Pas d'accord</label>
 
-        <input type="radio" name="demo2 " class="demo2 demono lightred" id="demo2-e" />
-        <label for="demo2-e">Pas tout à fait d'accord</label>
+        <input type="radio" name="demo2 " className="demo2 demono lightred" id="demo2-e" />
+        <label htmlFor="demo2-e">Pas tout à fait d'accord</label>
 
-        <input type="radio" name="demo2 " class="demo2 demono white" id="demo2-f" />
-        <label for="demo2-f">Pas d'avis</label>
+        <input type="radio" name="demo2 " className="demo2 demono white" id="demo2-f" />
+        <label htmlFor="demo2-f">Pas d'avis</label>
 
-        <input type="radio" name="demo2 " class="demo2 demono black" id="demo2-g" />
-        <label for="demo2-g">Je ne souhaite pas répondre</label>
+        <input type="radio" name="demo2 " className="demo2 demono black" id="demo2-g" />
+        <label htmlFor="demo2-g">Je ne souhaite pas répondre</label>
 
         <button>Suivant</button>
        </form>

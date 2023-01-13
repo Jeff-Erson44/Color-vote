@@ -4,9 +4,6 @@ export default async function handler(req,res){
     try{
         switch(req.method){
             case 'POST':
-                return res.status(401).json({error:'no POST!'})
-                break;
-            case 'GET':
                 const {id_session} = req.body
                 if(!id_session){
                     return res.status(400).json({error:'Please add all the fields'})
